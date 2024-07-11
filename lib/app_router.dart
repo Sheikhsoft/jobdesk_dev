@@ -18,7 +18,7 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: '/',
-          name: 'user_profile',
+          name: 'dashboardScreen',
           builder: (context, state) {
             return const DashboardScreen();
           },

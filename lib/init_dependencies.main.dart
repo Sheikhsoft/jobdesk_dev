@@ -23,7 +23,9 @@ Future<void> initDependencies() async {
 }
 
 void _initAuth() {
-  // Datasource
+  serviceLocator.registerFactory<AuthenticationBloc>(
+    () => AuthenticationBloc(),
+  );
 }
 
 void _initApp() {

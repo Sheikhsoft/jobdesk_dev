@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dev/bloc/authentication/authentication_bloc.dart';
 import 'package:dev/core/network/connection_checker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
