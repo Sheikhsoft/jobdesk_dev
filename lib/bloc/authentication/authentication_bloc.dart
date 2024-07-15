@@ -1,4 +1,5 @@
 import 'package:dev/model/user.dart';
+import 'package:dev/repository/auth_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,7 +8,9 @@ part 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc() : super(AuthInitialState()) {
+  final AuthRepository authRepository;
+  AuthenticationBloc({required this.authRepository})
+      : super(AuthInitialState()) {
     on<LogIn>((event, emit) async {
       try {
         // Successful login

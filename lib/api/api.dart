@@ -8,10 +8,20 @@ class Api {
 
   Api({required this.baseUrl}) {
     _dio.options.baseUrl = baseUrl;
-    _dio.options.receiveTimeout = const Duration(seconds: 10);
+    _dio.options.receiveTimeout = const Duration(seconds: 5);
     _dio.options.connectTimeout = const Duration(seconds: 5);
-    if (kDebugMode) _dio.interceptors.add(PrettyDioLogger());
+    if (kDebugMode) _dio.interceptors.add(PrettyDioLogger());    
+    _dio.options.headers = urlHeader;
   }
+
+    static void setUrlHeader(Map<String, String> header) {
+    urlHeader.addAll(header);
+  }
+
+  static Map<String, String> urlHeader = {
+    "content-type": "application/json",
+    "accept": "application/json",
+  };
 
   Future<Response> apiPostRequest({
     required String endPont,
@@ -42,5 +52,31 @@ class Api {
         options: options,
         onReceiveProgress: onReceiveProgress);
     return response;
+  }
+
+    Future<void> sendApiExceptionReport(
+      {required String functionName,
+      required String endPont,
+      required String message}) async {
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final Dio dio = Dio();
+    dio.options.headers = {
+      "content-type": "application/json",
+      "accept": "application/json",
+      "Authorization": "Bearer bbmh3qgnPA_CWr7pwSxwDq844_ZWBqLGKc4wsV7o"
+    };
+    if (kDebugMode) dio.interceptors.add(PrettyDioLogger());
+    String error_type =
+        kDebugMode ? "dev_error_mobileapp_$now" : "error_mobileapp_$now";
+    debugPrint(
+        "FunctionName : $functionName ApiUrl: $baseUrl$endPont Exception: $message");
+    try {
+      await dio.put(
+          "https://api.cloudflare.com/client/v4/accounts/3994118a483f485d38a8dba5306a253b/storage/kv/namespaces/a4ed20dfd7f94f63b7a03a977e5128f2/values/$error_type",
+          data:
+              "FunctionName : $functionName ApiUrl: $baseUrl$endPont Exception: $message");
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 }

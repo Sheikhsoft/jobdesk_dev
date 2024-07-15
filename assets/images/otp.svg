@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 156 103"
+	 enable-background="new 0 0 156 103" xml:space="preserve">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="103" width="155.5" x="0.2" y="0"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<g>
+	<path fill="#0A7ACC" d="M79.1,91.3c-21.9,0-39.7-17.8-39.7-39.7V7.9l40-7.9l39.4,7.9v43.8C118.8,73.5,101,91.3,79.1,91.3z
+		 M43.5,11.2v40.5c0,19.7,16,35.7,35.7,35.7s35.7-16,35.7-35.7V11.2L79.4,4.1L43.5,11.2z"/>
+	<path fill="#6EC2FF" d="M89.7,45.6H68.8V31.7c0-5.8,4.7-10.4,10.4-10.4c5.7,0,10.4,4.7,10.4,10.4v13.9H89.7z M72.8,41.6h12.9v-9.9
+		c0-3.6-2.9-6.4-6.4-6.4s-6.4,2.9-6.4,6.4v9.9H72.8z"/>
+	<path fill="#0A7ACC" d="M95.2,65.4H60.9v-2V41.6h2h34.3v2v21.8H95.2z M64.9,61.4h28.4V45.6H64.9V61.4z"/>
+	<path fill="#9ED6FF" d="M8.9,62.6c4.8,0,8.7-3.9,8.7-8.7s-3.9-8.7-8.7-8.7c-4.8,0-8.7,3.9-8.7,8.7S4.1,62.6,8.9,62.6z"/>
+	<path fill="#9ED6FF" d="M144.5,103c6.19,0,11.2-5.01,11.2-11.2s-5.01-11.2-11.2-11.2s-11.2,5.01-11.2,11.2S138.31,103,144.5,103z"
+		/>
+	<path fill="#9ED6FF" d="M138.5,13.2c3.09,0,5.6-2.51,5.6-5.6c0-3.09-2.51-5.6-5.6-5.6s-5.6,2.51-5.6,5.6
+		C132.9,10.69,135.41,13.2,138.5,13.2z"/>
+</g>
+</svg>

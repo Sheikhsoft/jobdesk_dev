@@ -3,14 +3,10 @@ part of 'init_dependencies.dart';
 final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
-  _initAuth();
-  _initApp();
+  Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
 
-  var path = Directory.current.path;
-  Hive.init(path);
-
-  serviceLocator.registerLazySingletonAsync(
-    () async => await Hive.openBox('jobDeskDb'),
+  serviceLocator.registerLazySingleton(
+    () => Hive.box(name: 'jobDeskDB'),
   );
 
   serviceLocator.registerFactory(() => InternetConnection());
@@ -20,11 +16,48 @@ Future<void> initDependencies() async {
       serviceLocator(),
     ),
   );
+  serviceLocator.registerFactory<Api>(
+    () => Api(baseUrl: 'http://www.jobdesk.cloud/'),
+  );
+  serviceLocator.registerFactory<AuthRepository>(
+    () => AuthRepository(
+      api: serviceLocator(),
+      connectionChecker: serviceLocator(),
+    ),
+  );
+  serviceLocator.registerFactory<LocalStorageService>(
+    () => LocalStorageService(
+      localDb: serviceLocator(),
+    ),
+  );
+
+  _initAuth();
+  _initApp();
 }
 
 void _initAuth() {
+  serviceLocator.registerFactory<SettingRepository>(
+    () => SettingRepository(
+      api: serviceLocator(),
+      connectionChecker: serviceLocator(),
+    ),
+  );
   serviceLocator.registerFactory<AuthenticationBloc>(
-    () => AuthenticationBloc(),
+    () => AuthenticationBloc(
+      authRepository: serviceLocator(),
+    ),
+  );
+  serviceLocator.registerFactory<LanguageBloc>(
+    () => LanguageBloc(
+      geoBloc: serviceLocator(),
+      settingRepository: serviceLocator(),
+    ),
+  );
+  serviceLocator.registerFactory<GeoInfoCubit>(
+    () => GeoInfoCubit(
+      settingRepository: serviceLocator(),
+      localStorageService: serviceLocator(),
+    ),
   );
 }
 
